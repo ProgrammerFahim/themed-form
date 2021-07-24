@@ -1,25 +1,73 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import googleLogo from './assets/g-logo.png';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+      darkTheme: true
+  }
+
+  changeTheme = () => {
+    let currentTheme = this.state.darkTheme;
+    this.setState({darkTheme: !currentTheme});
+  }
+
+  render () {
+    let containerClass = "container";
+    if (this.state.darkTheme)
+        containerClass += " dark-theme";
+    else
+        containerClass += " light-theme";
+    
+    return [
+        <div className="colorChangeToolbar">
+            <button class="changeTheme" onClick={this.changeTheme}>Change Theme</button>
+        </div>,
+        <div className="App">
+            <div className={containerClass}>
+                <section className="left">
+                    <h1>
+                        <span>Learn.</span>
+                        <span className="focus">Code.</span>
+                        <span>Be a pro.</span>
+                    </h1>
+                    <p>Join a legion of programmers who always stay at the edge of technological progress</p>
+                </section>
+                <section className="right">
+                    <form>
+                        <heading>
+                            <h1>Registration</h1>
+                            <h2>Become a Linux Expert</h2>
+                        </heading>
+
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="name" />
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" />
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" />
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" />
+
+                        <div className="main-buttons">
+                            <button type="button" className="normal-button">Sign Up</button>
+                            <a href="/">Already have an account? <span>Log In</span></a>
+                        </div>
+
+                        <div className="divider">
+                            <p>or</p>
+                        </div>
+
+                        <button type="button" className="google-button">
+                            <img src={googleLogo} alt="Google logo" />
+                            Sign in with Google
+                        </button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    ];
+  }
 }
 
 export default App;

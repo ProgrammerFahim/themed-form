@@ -1,38 +1,299 @@
 .App {
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* .left, 
+.right {
+    width: 400px;
+} */
+
+/* .container .right {
+    border: 1px solid black;
+} */
+
+h1 {
+    text-transform: uppercase;
+    margin-bottom: .5em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left h1 {
+    font-size: 2.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.left .focus {
+    font-size: 3rem;
+    color: #F26419;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right h1 {
+    color: #F26419;
 }
+
+.right h1,
+label,
+button,
+a,
+p {
+    font-size: 0.875rem;
+}
+
+.right h2 {
+    font-size: 1.5rem;
+}
+
+h1, 
+h2, 
+button, 
+span {
+    font-weight: 700;
+}
+
+form {
+    margin: 3.5em 3.2em;
+}
+
+label, input {
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-bottom: .5em;
+    margin-top: 1.3em;
+}
+
+input {
+    height: 2em;
+    border: none;
+}
+
+input:focus {
+    border: 2px solid #F26419;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 1em;
+}
+
+.left p {
+    width: 50%;
+}
+
+.left span {
+    display: block;
+}
+
+.main-buttons {
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+}
+
+.normal-button {
+    width: 35%;
+    text-align: center;
+    padding: .5em 0;
+    background: transparent;
+    border: 3px solid #F26419;
+}
+
+.main-buttons a {
+    text-decoration: none;
+    display: inline-block;
+    width: 40%;
+    margin-left: 3em;
+}
+
+.google-button {
+    width: 100%;
+    text-align: center;
+    padding: .5em 0;
+    background-color: #4285F4;
+    border: none;
+    position: relative;
+}
+
+.divider {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.divider p {
+    display: inline-block;
+    padding: 0 .5em;
+}
+
+.divider::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background: black;
+    top: 50%;
+    left: calc(50% + 1em);
+    right: 0;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background: black;
+    top: 50%;
+    left: 0;
+    right: calc(50% + 1em);
+}
+
+img {
+    width: 1.5em;
+    position: absolute;
+    top: .3em;
+    bottom: .3em;
+    left: .3em;
+}
+
+.dark-theme,
+.dark-theme button,
+.dark-theme a {
+    color: white;
+}
+
+.dark-theme .left {
+    background-image: linear-gradient(to bottom right, rgba(3, 4, 94, 0.8), rgba(3, 4, 94, 1)), 
+                      url("./assets/hacker.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
+.dark-theme .right {
+    background-image: linear-gradient(to bottom right, rgba(3, 4, 94, 0.8), rgba(3, 4, 94, 1))
+}
+
+.dark-theme input {
+    background-color: #023E8A;
+}
+
+.light-theme,
+.light-theme button,
+.light-theme a {
+    color: black;
+}
+
+.light-theme .left {
+    background-image: linear-gradient(to bottom right, rgba(103, 103, 103, 0.8), rgba(220, 220, 220, 0.8)),
+                      url("./assets/hacker.jpg");
+    background-blend-mode: normal;
+    background-size: cover;
+}
+
+.light-theme .right {
+    background-image: linear-gradient(to bottom right, rgba(244, 243, 238, 0.8), rgba(244, 243, 238, 1));
+}
+
+.light-theme input {
+    background-color: #BCB8B1;
+}
+
+.colorChangeToolbar {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colorChangeToolbar button {
+    background: transparent;
+    padding: .5em 1em;
+}
+
+@media (max-width: 699px) {
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 400px;
+    }
+}
+
+@media (max-width: 499px) {
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 350px;
+    }
+
+    form {
+        margin: 3em 2.5em;
+    }
+}
+
+@media (max-width: 349px) {
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    form {
+        margin: 2.4em 1.2em;
+    }
+}
+
+@media (min-width: 700px) {
+    .left {
+        width: 250px;
+    }
+
+    .left p {
+        width: 80%;
+    }
+    
+    .right {
+        width: 350px;
+    }
+
+    form {
+        margin: 2.5em 2em;
+    }
+}
+
+@media (min-width: 800px) {
+    .left, .right {
+        width: 350px;
+    }
+
+    .left p {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .left, .right {
+        width: 400px;
+    }
+
+    form {
+        margin: 3.5em 3.2em;
+    }
+}
+
