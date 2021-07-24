@@ -188,6 +188,11 @@ img {
     background-color: #023E8A;
 }
 
+.dark-theme divider::before,
+.dark-theme divider::after {
+    background: white;
+}
+
 .light-theme,
 .light-theme button,
 .light-theme a {
