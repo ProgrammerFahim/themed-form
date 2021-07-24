@@ -188,8 +188,8 @@ img {
     background-color: #023E8A;
 }
 
-.dark-theme divider::before,
-.dark-theme divider::after {
+.dark-theme .divider::before,
+.dark-theme .divider::after {
     background: white;
 }
 
