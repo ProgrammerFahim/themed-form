@@ -14,14 +14,22 @@ class App extends Component {
 
   render () {
     let containerClass = "container";
-    if (this.state.darkTheme)
+    let toggleClass = "colorChangeToolbar";
+    if (this.state.darkTheme) {
         containerClass += " dark-theme";
-    else
+        toggleClass += " dark-theme";
+    } else {    
         containerClass += " light-theme";
+        toggleClass += " light-theme";
+    }
     
     return [
-        <div className="colorChangeToolbar">
-            <button class="changeTheme" onClick={this.changeTheme}>Change Theme</button>
+        <div className={toggleClass}>
+            <button class="toggle-theme" onClick={this.changeTheme}>
+                <div class="toggle-container">
+                    <div class="slider"></div>
+                </div>
+            </button>
         </div>,
         <div className="App">
             <div className={containerClass}>
